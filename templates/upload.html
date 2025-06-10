@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Upload Document</h2>
+
+<form method="POST" enctype="multipart/form-data">
+    Title: <input type="text" name="title"><br>
+    Document File: <input type="file" name="file"><br>
+    Author: <input type="text" name="author"><br>
+    <input type="submit" value="Add Document">
+</form>
+
+{% if uploads %}
+<h3>Uploaded Documents</h3>
+<table border="1" cellpadding="5">
+    <tr>
+        <th>Title</th>
+        <th>File</th>
+        <th>Author</th>
+        <th>Link</th>
+    </tr>
+    {% for u in uploads %}
+    <tr>
+        <td>{{ u['title'] }}</td>
+        <td>{{ u['filename'] }}</td>
+        <td>{{ u['author'] }}</td>
+        <td><a href="{{ url_for('static', filename='uploads/' ~ u['filename']) }}" target="_blank">View</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>There are currently no reports in the library.</p>
+{% endif %}
+{% endblock %}

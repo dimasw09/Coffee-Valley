@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Add Distributor</h2>
+<form method="POST">
+    Distributor Name: <input type="text" name="name"><br>
+    City: <input type="text" name="city"><br>
+    State/Region: <input type="text" name="state"><br>
+    Country:
+    <select name="country">
+        <option value="Australia">Australia</option>
+        <option value="Germany">Germany</option>
+        <option value="USA">USA</option>
+        <option value="Netherlands">Netherlands</option>
+        <option value="Netherlands">Indonesia</option>
+        <!-- Tambah sesuai kebutuhan -->
+    </select><br>
+    Phone: <input type="text" name="phone"><br>
+    Email: <input type="email" name="email"><br>
+    <input type="submit" value="Add">
+</form>
+{% endblock %}

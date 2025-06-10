@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Catalogue</h2>
+
+<table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+        <th>Bean</th>
+        <th>Description</th>
+        <th>Price/Unit</th>
+    </tr>
+    {% for bean in beans %}
+    <tr>
+        <td>{{ bean['name'] }}</td>
+        <td>{{ bean['description'] }}</td>
+        <td>${{ '%.2f'|format(bean['sale_price']) }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<p style="margin-top: 30px;">{{ datetime.utcnow().strftime('%B %d, %Y') }}</p>
+{% endblock %}

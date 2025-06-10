@@ -1,0 +1,37 @@
+CREATE TABLE IF NOT EXISTS Logins (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT NOT NULL UNIQUE,
+    password TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Bean (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    description TEXT
+);
+
+CREATE TABLE IF NOT EXISTS DailyBean (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    bean_id INTEGER,
+    sale_price REAL,
+    FOREIGN KEY (bean_id) REFERENCES Bean(id)
+);
+
+CREATE TABLE IF NOT EXISTS Distributor (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    city TEXT NOT NULL,
+    state TEXT,
+    country TEXT,
+    phone TEXT,
+    email TEXT
+);
+
+
+
+CREATE TABLE IF NOT EXISTS Upload (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT NOT NULL,
+    filename TEXT NOT NULL,
+    author TEXT
+);

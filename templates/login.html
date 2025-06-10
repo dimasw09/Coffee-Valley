@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - Coffee Valley</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="login-page">
+
+    <div class="login-container">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Coffee Valley Logo" class="logo">
+        <h1 class="brand">Coffee Valley</h1>
+        <p class="tagline">Taste the love in every cup!</p>
+        <p class="address">One Alewife Center 3rd Floor<br>Cambridge, MA 02140</p>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        <form method="POST" class="login-form">
+            <label>User ID:</label>
+            <input type="text" name="username">
+            <label>Password:</label>
+            <input type="password" name="password">
+            <input type="submit" value="Login">
+        </form>
+    </div>
+
+</body>
+</html>

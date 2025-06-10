@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+    <title>Coffee Valley</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Coffee Valley</h1>
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a> |
+            <a href="{{ url_for('catalogue') }}">Catalogue</a> |
+            <a href="{{ url_for('order_status') }}">Order Status</a> |
+            <a href="{{ url_for('distributor') }}">Distributors</a> |
+            <a href="{{ url_for('upload') }}">Upload</a> |
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </nav>
+        <hr>
+    </header>
+    
+    {% block content %}{% endblock %}
+    
+    <footer>
+        <hr>
+        <p>Today's Date: {{ datetime.utcnow().strftime('%B %d, %Y') }}</p>
+    </footer>
+</body>
+</html>

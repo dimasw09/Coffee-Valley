@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Edit Distributor</h2>
+<form method="POST">
+    Distributor Name: <input type="text" name="name" value="{{ distributor['name'] }}"><br>
+    City: <input type="text" name="city" value="{{ distributor['city'] }}"><br>
+    State/Region: <input type="text" name="state" value="{{ distributor['state'] }}"><br>
+    Country:
+    <select name="country">
+        <option value="Australia" {% if distributor['country'] == 'Australia' %}selected{% endif %}>Australia</option>
+        <option value="Germany" {% if distributor['country'] == 'Germany' %}selected{% endif %}>Germany</option>
+        <option value="USA" {% if distributor['country'] == 'USA' %}selected{% endif %}>USA</option>
+        <option value="The Netherlands" {% if distributor['country'] == 'The Netherlands' %}selected{% endif %}>The Netherlands</option>
+    </select><br>
+    Phone: <input type="text" name="phone" value="{{ distributor['phone'] }}"><br>
+    Email: <input type="email" name="email" value="{{ distributor['email'] }}"><br>
+    <input type="submit" value="Update">
+</form>
+{% endblock %}

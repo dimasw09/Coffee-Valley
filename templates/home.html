@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Bean of the Day</h2>
+
+{% if bean %}
+    <p><strong>{{ bean['name'] }}</strong></p>
+    <p><strong>Sale Price</strong><br>${{ '%.2f'|format(bean['sale_price']) }}</p>
+    <p><strong>Description</strong><br>{{ bean['description'] }}</p>
+{% else %}
+    <p>No Bean available.</p>
+{% endif %}
+
+<p style="margin-top: 50px;">{{ datetime.utcnow().strftime('%B %d, %Y') }}</p>
+{% endblock %}
